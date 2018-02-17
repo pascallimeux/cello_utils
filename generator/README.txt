@@ -1,0 +1,3 @@
+
+initialize virtualenv
+make setup

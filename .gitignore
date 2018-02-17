@@ -1,0 +1,10 @@
+**/node_modules/
+**/venv/
+**/__pycache__/
+**/old/
+**/local/*
+**/generated/*
+.log
+.pyc
+.DS_Store
+TODO
