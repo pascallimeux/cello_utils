@@ -7,7 +7,7 @@ YELLOW := $(shell tput -Txterm setaf 3)
 RESET  := $(shell tput -Txterm sgr0)
 
 setup: ##@Generator Init python virtualenv.
-	@./setup.sh
+	@./scripts/setup.sh
 
 test: ##@Generator start unit tests for generator.
 	@cd src/generator/tests && source ../../../venv/bin/activate && python -m unittest test_generator.TestGenerator.test_Generate_All
