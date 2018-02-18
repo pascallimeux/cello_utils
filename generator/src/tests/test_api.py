@@ -64,6 +64,7 @@ class TestApis(unittest.TestCase):
             '/generator/api/v1.0/generate',
             data=data,
         )
+        logger.debug(response)
         self.assertEqual(response.status_code, 201)
  
  

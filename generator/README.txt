@@ -6,4 +6,11 @@ linux prerequisite:
     generate configtxgen and cryptogen for your system and place them in the bin directory (script )
 
 initialize virtualenv
-make setup
+    make setup
+
+
+start unit tests
+    make test
+
+
+
