@@ -64,8 +64,10 @@ EXPLORER_MSQL_LOGIN = "root"
 EXPLORER_MSQL_PWD   = "123456"
 EXPLORER_CONFIG_FN  = "config.json"
 EXPLORER_PATH = "explorer/local"
+EXPLORER_TAR = "local_explorer.tgz"
 
 # Composer constants
 COMPOSER_PATH = "composer/local"
 COMPOSER_CONFIG_FN = "connection.json"
 COMPOSER_LOCAL = "/opt/ols/composer/local/"
+COMPOSER_TAR = "local_composer.tgz"

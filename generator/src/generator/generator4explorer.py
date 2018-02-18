@@ -4,8 +4,9 @@ Created on 15 february 2018
 @author: PYOL6775
 '''
 import json
-from constants import logger, LOCAL, EXPLORER_PATH,  EXPLORER_CONFIG_FN, EXPLORER_HOST, EXPLORER_MSQL_DB, EXPLORER_MSQL_HOST, EXPLORER_MSQL_LOGIN, EXPLORER_MSQL_PORT, EXPLORER_MSQL_PWD, EXPLORER_LOCAL, EXPLORER_PORT
-from cmd_utils import exec_cmd
+from constants import EXPLORER_TAR, logger, LOCAL, EXPLORER_PATH,  EXPLORER_CONFIG_FN, EXPLORER_HOST, EXPLORER_MSQL_DB, EXPLORER_MSQL_HOST, EXPLORER_MSQL_LOGIN, EXPLORER_MSQL_PORT, EXPLORER_MSQL_PWD, EXPLORER_LOCAL, EXPLORER_PORT
+from utils.cmd_utils import exec_cmd
+from utils.tar_utils import build_tarfile
 
 def create_config_file(config, filename):
     logger.info("Create explorer config file...")
@@ -63,4 +64,5 @@ def generate_archive4explorer(config, channel_dir):
             exec_cmd("mkdir -p {}".format(dir + "/" + org.org_name + "/peer/"+ peer.name))
             peer_ca_crt = local+"/crypto-config/peerOrganizations/"+org.domain+"/peers/"+peer.name+"."+org.domain+"/tls/ca.crt"
             exec_cmd("cp {0} {1}".format(peer_ca_crt, dir + "/" + org.org_name + "/peer/"+ peer.name+"/ca.crt"))
+    build_tarfile(dir, channel_dir+"/"+EXPLORER_TAR)
   

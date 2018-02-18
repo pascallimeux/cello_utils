@@ -4,9 +4,10 @@ Created on 15 february 2018
 @author: PYOL6775
 '''
 import json
-from constants import logger, COMPOSER_CONFIG_FN, COMPOSER_LOCAL, LOCAL, COMPOSER_PATH
+from constants import logger, COMPOSER_CONFIG_FN, COMPOSER_LOCAL, LOCAL, COMPOSER_PATH, COMPOSER_TAR
 from models import Config
-from cmd_utils import exec_cmd
+from utils.cmd_utils import exec_cmd
+from utils.tar_utils import build_tarfile
 
 def create_connection_file(config, filename):
     for peer_org in config.peer_orgs:
@@ -63,4 +64,5 @@ def generate_archive4composer(config, channel_dir):
             exec_cmd("mkdir -p {}".format(dir + "/" + org.org_name + "/peer/"+ peer.name))
             peer_ca_crt = local+"/crypto-config/peerOrganizations/"+org.domain+"/peers/"+peer.name+"."+org.domain+"/tls/ca.crt"
             exec_cmd("cp {0} {1}".format(peer_ca_crt, dir + "/" + org.org_name + "/peer/"+ peer.name+"/ca.crt"))
+    build_tarfile(dir, channel_dir+"/"+COMPOSER_TAR)
     

@@ -8,7 +8,7 @@ from models import json2config, Config
 from constants import logger, root_path, GENERATED, LOCAL, COMPOSER_PATH, EXPLORER_PATH
 from cryptogenManager import create_crypto_config_file, generate_MSP
 from configtxManager import generate_genesis_block, generate_configTX, create_configtx_file
-from cmd_utils import exec_cmd
+from utils.cmd_utils import exec_cmd
 from generator4composer import create_connection_file, generate_archive4composer
 from generator4explorer import create_config_file, generate_archive4explorer
 

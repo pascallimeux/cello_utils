@@ -6,8 +6,8 @@ Created on 15 february 2018
 
 import json
 from constants import logger
-from cmd_utils import exec_cmd
-from yaml_utils import dump_yaml_file
+from utils.cmd_utils import exec_cmd
+from utils.yaml_utils import dump_yaml_file
 from models import Config
 from constants import CONFIGTXGEN, CNFIGTX_FN, GENESISBLOCKNAME, logger, root_path, CHANNEL_NAME
 

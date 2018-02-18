@@ -5,18 +5,14 @@ Created on 15 february 2018
 '''
 
 import os
-import yaml 
-from constants import logger
+import yaml
 
 def load_yaml_file(filename) :
     with open(filename, 'r') as stream:
         try:
             data = yaml.load(stream)
-            res = str(data).replace("'", "\"")
-            logger.debug(res)
             return data
-        except yaml.YAMLError as exc:
-            logger.error(exc)
+        except yaml.YAMLError:
             return None
 
 
@@ -27,5 +23,5 @@ def dump_yaml_file(data, file_path=None):
         with open(file_path, 'w') as yaml_file:
             try:
                 yaml.dump(data=data, stream=yaml_file, default_flow_style=False, indent=2)
-            except yaml.YAMLError as exc:
-                logger.error(exc)
+            except yaml.YAMLError:
+                return None

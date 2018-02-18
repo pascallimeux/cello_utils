@@ -5,7 +5,7 @@ Created on 16 february 2018
 '''
 # example to start a single test:
 # cd cello_utils/generator/src/generator/tests
-# source ... /venv/bin/activate
+# source ../../../venv/bin/activate
 # python -m unittest test_generator.TestGenerator.test_Generate_crypto_material
 # python -m unittest test_generator.TestGenerator.test_Generate_channel_artifacts
 # python -m unittest test_generator.TestGenerator.test_Generate4explorer

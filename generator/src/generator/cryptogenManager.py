@@ -5,8 +5,8 @@ Created on 15 february 2018
 '''
 
 import json
-from yaml_utils import dump_yaml_file
-from cmd_utils import exec_cmd
+from utils.yaml_utils import dump_yaml_file
+from utils.cmd_utils import exec_cmd
 from models import Config
 from constants import CRYPTOGEN, CRYPTOCONFIG_FN, logger, root_path
 
