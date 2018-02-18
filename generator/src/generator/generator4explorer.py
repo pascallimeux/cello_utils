@@ -4,9 +4,9 @@ Created on 15 february 2018
 @author: PYOL6775
 '''
 import json
-from constants import EXPLORER_TAR, logger, LOCAL, EXPLORER_PATH,  EXPLORER_CONFIG_FN, EXPLORER_HOST, EXPLORER_MSQL_DB, EXPLORER_MSQL_HOST, EXPLORER_MSQL_LOGIN, EXPLORER_MSQL_PORT, EXPLORER_MSQL_PWD, EXPLORER_LOCAL, EXPLORER_PORT
-from utils.cmd_utils import exec_cmd
-from utils.tar_utils import build_tarfile
+from generator.constants import EXPLORER_TAR, logger, LOCAL, EXPLORER_PATH,  EXPLORER_CONFIG_FN, EXPLORER_HOST, EXPLORER_MSQL_DB, EXPLORER_MSQL_HOST, EXPLORER_MSQL_LOGIN, EXPLORER_MSQL_PORT, EXPLORER_MSQL_PWD, EXPLORER_LOCAL, EXPLORER_PORT
+from generator.utils.cmd_utils import exec_cmd
+from generator.utils.tar_utils import build_tarfile
 
 def create_config_file(config, filename):
     logger.info("Create explorer config file...")

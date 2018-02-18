@@ -4,8 +4,8 @@ Created on 15 february 2018
 @author: PYOL6775
 '''
 
-from constants import DEFAULT_CA_PORT, DEFAULT_ORDERER_PORT, DEFAULT_PEER_EVENT_PORT, DEFAULT_PEER_REQUEST_PORT, DEFAULT_NB_USERS
-from MyMalformedException import MyMalformedException
+from generator.constants import DEFAULT_CA_PORT, DEFAULT_ORDERER_PORT, DEFAULT_PEER_EVENT_PORT, DEFAULT_PEER_REQUEST_PORT, DEFAULT_NB_USERS
+from generator.exceptions.MyMalformedException import MyMalformedException
 
 class Channel:
     def __init__(self, name):

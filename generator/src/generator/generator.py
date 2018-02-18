@@ -4,13 +4,13 @@ Created on 17 february 2018
 @author: PYOL6775
 '''
 import json
-from models import json2config, Config
-from constants import logger, root_path, GENERATED, LOCAL, COMPOSER_PATH, EXPLORER_PATH
-from cryptogenManager import create_crypto_config_file, generate_MSP
-from configtxManager import generate_genesis_block, generate_configTX, create_configtx_file
-from utils.cmd_utils import exec_cmd
-from generator4composer import create_connection_file, generate_archive4composer
-from generator4explorer import create_config_file, generate_archive4explorer
+from generator.models import json2config, Config
+from generator.constants import logger, root_path, GENERATED, LOCAL, COMPOSER_PATH, EXPLORER_PATH
+from generator.cryptogenManager import create_crypto_config_file, generate_MSP
+from generator.configtxManager import generate_genesis_block, generate_configTX, create_configtx_file
+from generator.utils.cmd_utils import exec_cmd
+from generator.generator4composer import create_connection_file, generate_archive4composer
+from generator.generator4explorer import create_config_file, generate_archive4explorer
 
 
 def generate_archives(json_config, archive="ALL"):

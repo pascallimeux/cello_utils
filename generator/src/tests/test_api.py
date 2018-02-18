@@ -1,25 +1,19 @@
 # -*- coding: utf8 -*-
 '''
-Created on 16 february 2018
+Created on 18 february 2018
 @author: PYOL6775
 '''
-# example to start a single test:
-# cd cello_utils/generator/src/generator/tests
-# source ../../../venv/bin/activate
-# python -m unittest test_generator.TestGenerator.test_Generate_crypto_material
-# python -m unittest test_generator.TestGenerator.test_Generate_channel_artifacts
-# python -m unittest test_generator.TestGenerator.test_Generate4explorer
-# python -m unittest test_generator.TestGenerator.test_Generate4composer
-# python -m unittest test_generator.TestGenerator.test_Generate_All
+# python -m unittest test_api.TestApis.test_generate_api
 
-import sys, os
-import json
-import unittest
+import os, sys
+import unittest, json
+
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../')
-from constants import DEFAULT_PEER_EVENT_PORT, DEFAULT_CA_PORT, DEFAULT_ORDERER_PORT, DEFAULT_PEER_REQUEST_PORT, logger
-from interface import generate4composer, generate4explorer, generate_all_material, generate_dockerfiles, generate_crypto_material, generate_channel_artifacts
 
+
+from app import app
+from generator.constants import DEFAULT_PEER_EVENT_PORT, DEFAULT_PEER_REQUEST_PORT, DEFAULT_ORDERER_PORT, DEFAULT_CA_PORT
 def config_test(tls, ip):
     DOMAIN_NAME = "example.com"
     PROVINCE    = "Rhone Alpe"
@@ -51,28 +45,27 @@ def config_test(tls, ip):
     #logger.debug(json.dumps(config, indent=4))
     return config
 
-class TestGenerator(unittest.TestCase):
+class TestApis(unittest.TestCase): 
+ 
     def setUp(self):
+        app.config['TESTING'] = True
+        app.config['WTF_CSRF_ENABLED'] = False
+        app.config['DEBUG'] = False
+        self.app = app.test_client()
         self.config = config_test(tls=True, ip="192.168.8.133")
 
-    def test_Generate_crypto_material(self):
-        generate_crypto_material(self.config)
+    def tearDown(self):
+        pass
 
-    def test_Generate_channel_artifacts(self):
-        generate_channel_artifacts(self.config)
-    
-    def test_Generate_dockerfiles(self):
-        generate_dockerfiles(self.config)
-
-    def test_Generate4composer(self):
-        generate4composer(self.config)
-        
-    def test_Generate4explorer(self):
-        generate4explorer(self.config)
-
-    def test_Generate_All(self):
-        generate_all_material(self.config)
-    
-
-if __name__ == '__main__':
+ 
+    def test_generate_api(self):
+        data=json.dumps(self.config)
+        response = self.app.post(
+            '/generator/api/v1.0/generate',
+            data=data,
+        )
+        self.assertEqual(response.status_code, 201)
+ 
+ 
+if __name__ == "__main__":
     unittest.main()

@@ -4,10 +4,10 @@ Created on 15 february 2018
 @author: PYOL6775
 '''
 import json
-from constants import logger, COMPOSER_CONFIG_FN, COMPOSER_LOCAL, LOCAL, COMPOSER_PATH, COMPOSER_TAR
-from models import Config
-from utils.cmd_utils import exec_cmd
-from utils.tar_utils import build_tarfile
+from generator.constants import logger, COMPOSER_CONFIG_FN, COMPOSER_LOCAL, LOCAL, COMPOSER_PATH, COMPOSER_TAR
+from generator.models import Config
+from generator.utils.cmd_utils import exec_cmd
+from generator.utils.tar_utils import build_tarfile
 
 def create_connection_file(config, filename):
     for peer_org in config.peer_orgs:

@@ -10,7 +10,7 @@ setup: ##@Generator Init python virtualenv.
 	@./scripts/setup.sh
 
 test: ##@Generator start unit tests for generator.
-	@cd src/generator/tests && source ../../../venv/bin/activate && python -m unittest test_generator.TestGenerator.test_Generate_All
+	@cd src/tests && source ../../venv/bin/activate && python -m unittest *.py
 
 clean: ##@Generator Remove file .pyc.
 	@find . -name "*.pyc" -exec rm -f {} \;

@@ -4,8 +4,8 @@ Created on 16 february 2018
 @author: PYOL6775
 '''
 
-from generator import generate_archives
-from constants import logger
+from generator.generator import generate_archives
+from generator.constants import logger
 
 def generate_all_material(json_config):
     logger.info("Generate all material...")
