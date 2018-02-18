@@ -11,7 +11,7 @@ import unittest, json
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../')
 
-
+from generator.constants import logger
 from app import app
 from generator.constants import DEFAULT_PEER_EVENT_PORT, DEFAULT_PEER_REQUEST_PORT, DEFAULT_ORDERER_PORT, DEFAULT_CA_PORT
 def config_test(tls, ip):
@@ -42,7 +42,7 @@ def config_test(tls, ip):
     peerOrg2    = {'org_name': 'Org2', 'domain':DOMAIN_NAME, 'peers':[peer21, peer22], 'ca': ca2}
     ordererOrg  = {'org_name': 'Orderer', 'domain':DOMAIN_NAME, 'orderers': [orderer]}
     config      = {'cert': certificate, 'channel':channel, 'orderer_org': ordererOrg, 'peer_orgs':[peerOrg1, peerOrg2]} 
-    #logger.debug(json.dumps(config, indent=4))
+    logger.debug(json.dumps(config, indent=4))
     return config
 
 class TestApis(unittest.TestCase): 
